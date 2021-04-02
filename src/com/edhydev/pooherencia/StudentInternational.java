@@ -1,18 +1,18 @@
 package com.edhydev.pooherencia;
 
-public class StedentInternational extends Student{
+public class StudentInternational extends Student{
     private String country;
     private double scoreLanguage;
 
-    public StedentInternational() {
+    public StudentInternational() {
         System.out.println("StedentInternational: initialising constructor");
     }
 
-    public StedentInternational(String name, String surnames) {
+    public StudentInternational(String name, String surnames) {
         super(name, surnames);
     }
 
-    public StedentInternational(String name, String surnames, String country) {
+    public StudentInternational(String name, String surnames, String country) {
         this(name, surnames);
         this.country = country;
     }
@@ -33,4 +33,19 @@ public class StedentInternational extends Student{
         this.scoreLanguage = scoreLanguage;
     }
 
+    @Override
+    public double getAverage() {
+        return ((super.getAverage() * 3) + this.scoreLanguage) / 4;
+    }
+
+    @Override
+    public String sayHello() {
+        return super.sayHello() + " and I'm foreign student!";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\ncountry='" + country + '\'' +
+                ", scoreLanguage=" + scoreLanguage;
+    }
 }
